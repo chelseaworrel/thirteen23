@@ -4,14 +4,14 @@ class UserCanSignUpTest < ActionDispatch::IntegrationTest
     visit root_path
     assert page.has_content?("Welcome")
     assert page.has_link?("Create Account")
-    assert page.has_link?("Login")
+    assert page.has_link?("Sign In")
 
     click_link_or_button 'Create Account'
     fill_in "Name", with: "Chelsea Worrel"
     fill_in "Username", with: "cdub"
     fill_in "Password", with: "password"
     fill_in "Location", with: "Denver"
-    click_link_or_button 'Join'
+    click_link_or_button 'Create Account'
 
     assert_equal user_path, current_path
   end
