@@ -1,4 +1,5 @@
 require 'test_helper'
+
 class UserCanSignUpTest < ActionDispatch::IntegrationTest
   def test_a_user_can_sign_up
     visit root_path
