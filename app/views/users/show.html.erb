@@ -1,2 +1,11 @@
 <h1>Hello World</h1>
 <%= @user.name %>
+
+<%= form_for(@user) do |f| %>
+  <%= f.attachinary_file_field :avatar %>
+  <%= f.submit "Upload Photo" %>
+<% end %>
+
+<% if @user.avatar? %>
+    <%= cl_image_tag(@user.avatar.path, { size: '200x200', crop: :thumb, gravity: :face }) %>
+<% end %>

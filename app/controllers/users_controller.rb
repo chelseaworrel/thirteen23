@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action(:set_user, only: [:update])
+
   def index
   end
 
@@ -8,7 +10,6 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    # @user = User.find_by(id: params[:username])
   end
 
   def create
@@ -22,9 +23,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    if @user.update(user_params)
+      # flash.notice = "Profile '#{@user.name}' Updated!"
+      redirect_to username_path(@user)
+    else
+      render :show
+    end
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :username, :password, :location, :email)
+    params.require(:user).permit(:name, :username, :password, :location, :email, :avatar)
+  end
+
+  def set_user
+    @user = User.find_by_username(params[:id])
   end
 end
