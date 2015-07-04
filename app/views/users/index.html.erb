@@ -1,4 +1,9 @@
 <h1>Welcome</h1>
 
+<% @users.each do |user| %>
+  <%= user.avatar %>
+  <%= link_to user.name, username_path(user) %><br>
+<% end %>
+
 <%= link_to "Create Account", new_user_path %><br>
 <%= link_to "Login", login_path %>

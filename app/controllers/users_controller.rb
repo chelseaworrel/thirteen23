@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action(:set_user, only: [:update])
 
   def index
+    @users = User.all
   end
 
   def new
@@ -9,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @user = User.find_by(username: params[:username])
   end
 
   def create
@@ -24,8 +25,8 @@ class UsersController < ApplicationController
   end
 
   def update
+    # @user = current_user
     if @user.update(user_params)
-      # flash.notice = "Profile '#{@user.name}' Updated!"
       redirect_to username_path(@user)
     else
       render :show

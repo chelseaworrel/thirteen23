@@ -1,6 +1,7 @@
 <h1>Hello <%= @user.name %></h1>
 
 <h3>Location <%= @user.location %></h3>
+
 <% if @user.avatar? %>
   <%= cl_image_tag(@user.avatar.path, { size: '200x200',
                                         crop: :thumb,
@@ -12,9 +13,12 @@
                                    default_image: 'default_qedy6q.png'}) %>
 <% end %>
 
-
-
-<%= form_for(@user) do |f| %>
-  <%= f.attachinary_file_field :avatar %><br>
-  <%= f.submit "Upload Photo" %>
+<% if @user == current_user %>
+  <%= form_for(@user) do |f| %>
+    <%= f.attachinary_file_field :avatar %><br>
+    <%= f.submit "Upload Photo" %>
+    <% end %>
 <% end %><br>
+
+<%= link_to "Logout", logout_path, method: :delete %>
+<%= link_to "Home", root_path %>
