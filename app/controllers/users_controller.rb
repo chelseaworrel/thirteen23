@@ -25,7 +25,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    # @user = current_user
     if @user.update(user_params)
       redirect_to username_path(@user)
     else
