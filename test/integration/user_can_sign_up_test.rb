@@ -5,13 +5,14 @@ class UserCanSignUpTest < ActionDispatch::IntegrationTest
     visit root_path
     assert page.has_content?("Welcome")
     assert page.has_link?("Create Account")
-    assert page.has_link?("Sign In")
+    assert page.has_link?("Login")
     click_link_or_button 'Create Account'
 
     fill_in "Name", with: "Chelsea Worrel"
     fill_in "Username", with: "cdub"
     fill_in "Password", with: "password"
     fill_in "Location", with: "Denver"
+    fill_in "Email", with: "chelsea@gmail.com"
     click_link_or_button 'Create Account'
 
     assert_equal username_path, current_path
@@ -22,6 +23,7 @@ class UserCanSignUpTest < ActionDispatch::IntegrationTest
     click_link_or_button 'Create Account'
     fill_in "Username", with: "cdub"
     fill_in "Password", with: "password"
+    fill_in "Email", with: "chelsea@gmail.com"
     fill_in "Name", with: ""
     click_button 'Create Account'
 
@@ -33,6 +35,7 @@ class UserCanSignUpTest < ActionDispatch::IntegrationTest
     click_link_or_button 'Create Account'
     fill_in "Username", with: ""
     fill_in "Password", with: "password"
+    fill_in "Email", with: "chelsea@gmail.com"
     fill_in "Name", with: "Chelsea Worrel"
     click_button 'Create Account'
 
@@ -43,6 +46,7 @@ class UserCanSignUpTest < ActionDispatch::IntegrationTest
     visit root_path
     click_link_or_button 'Create Account'
     fill_in "Username", with: "cdub"
+    fill_in "Email", with: "chelsea@gmail.com"
     fill_in "Password", with: ""
     fill_in "Name", with: "Chelsea Worrel"
     click_button 'Create Account'
@@ -56,6 +60,7 @@ class UserCanSignUpTest < ActionDispatch::IntegrationTest
     fill_in "Username", with: "cdub"
     fill_in "Password", with: "password"
     fill_in "Name", with: "Chelsea Worrel"
+    fill_in "Email", with: "chelsea@gmail.com"
     fill_in "Location", with: ""
     click_button 'Create Account'
 

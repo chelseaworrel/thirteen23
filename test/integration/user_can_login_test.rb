@@ -5,16 +5,15 @@ class UserCanSignUpTest < ActionDispatch::IntegrationTest
   swifty = User.create(username: "tswift",
                        password: "password",
                        name: "Taylor Swift",
+                       email: "tswift4life@gmail.com",
                        location: "New York")
 
   visit root_path
-  click_link("Login")
+  click_link_or_button("Login")
   fill_in "Username", with: "tswift"
   fill_in "Password", with: "password"
   click_button "Login"
-
-  expect(current_path).to eq(user_path(swifty))
-  assert page.has_content?("Welcome tswift")
-  reset_session!
+  assert_equal username_path, current_path
+  assert page.has_content?("Taylor Swift")
   end
 end
