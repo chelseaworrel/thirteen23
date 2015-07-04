@@ -8,6 +8,12 @@ class UserCanSignUpTest < ActionDispatch::IntegrationTest
     assert page.has_link?("Login")
     click_link_or_button 'Create Account'
 
+    user = User.create(username: "cdub",
+                         password: "password",
+                         name: "Chelsea Worrel",
+                         email: "chelsea@gmail.com",
+                         location: "Denver")
+
     fill_in "Name", with: "Chelsea Worrel"
     fill_in "Username", with: "cdub"
     fill_in "Password", with: "password"
@@ -15,7 +21,7 @@ class UserCanSignUpTest < ActionDispatch::IntegrationTest
     fill_in "Email", with: "chelsea@gmail.com"
     click_link_or_button 'Create Account'
 
-    assert_equal username_path, current_path
+    assert_equal username_path(user), current_path
   end
 
   def test_it_throws_an_error_when_a_user_is_missing_name
@@ -55,6 +61,11 @@ class UserCanSignUpTest < ActionDispatch::IntegrationTest
   end
 
   def test_that_location_is_not_a_required_field
+    user = User.create(username: "cdub",
+                         password: "password",
+                         name: "Chelsea Worrel",
+                         email: "chelsea@gmail.com",
+                         location: "Denver")
     visit root_path
     click_link_or_button 'Create Account'
     fill_in "Username", with: "cdub"
@@ -64,6 +75,6 @@ class UserCanSignUpTest < ActionDispatch::IntegrationTest
     fill_in "Location", with: ""
     click_button 'Create Account'
 
-    assert_equal username_path, current_path
+    assert_equal username_path(user), current_path
   end
 end

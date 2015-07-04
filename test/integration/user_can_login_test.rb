@@ -13,7 +13,7 @@ class UserCanSignUpTest < ActionDispatch::IntegrationTest
   fill_in "Username", with: "tswift"
   fill_in "Password", with: "password"
   click_button "Login"
-  assert_equal username_path, current_path
+  assert_equal username_path(swifty), current_path
   assert page.has_content?("Taylor Swift")
   end
 end
