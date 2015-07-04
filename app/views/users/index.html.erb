@@ -1,9 +1,11 @@
-<h1>Welcome</h1>
-
+<div class="body-style">
+<%= image_tag("welcome.png",:class => "welcome") %>
+<div class="users">
 <% @users.each do |user| %>
-  <%= user.avatar %>
-  <%= link_to user.name, username_path(user) %><br>
+<h2><%= link_to user.name, username_path(user) %></h2>
 <% end %>
+</div>
 
 <%= link_to "Create Account", new_user_path %><br>
 <%= link_to "Login", login_path %>
+</div>
