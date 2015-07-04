@@ -1,7 +1,7 @@
 body {
   background-color: white;
-  background-image: image-url("woody.jpg");
-  // background-repeat: no-repeat;
+  background-image: image-url("flowers.jpg");
+  background-repeat: no-repeat;
   position: relative;
   margin-top: 35px;
   margin-bottom: 35px;
@@ -27,25 +27,71 @@ input[type="submit"] {
   font-family: 'Lato', sans-serif;
 }
 
+input {
+  width: 20%;
+  background-color: #FFF;
+  color: #8a8a8a;
+  border-radius: 5px;
+  min-height: 3em;
+  font-size: 13px;
+  font-family: 'Lato', sans-serif;
+  line-height: 1.4em;
+  padding: 0.7em;
+  border: 1px solid;
+  box-sizing: border-box;
+  background-clip: padding-box;
+  border-color: #e1e1e1;
+  outline: 0;
+  margin: 0;
+  text-align: left;
+  height: 1.8em;
+  vertical-align: top;
 
+}
 #session_password, #session_username {
-width: 20%;
-background-color: #FFF;
-color: #8a8a8a;
-border-radius: 5px;
-min-height: 3em;
-font-size: 13px;
-font-family: 'Lato', sans-serif;
-line-height: 1.4em;
-padding: 0.7em;
-border: 1px solid rgba(0,0,0,0.05);
-box-sizing: border-box;
-background-clip: padding-box;
-border-color: #848484 #c1c1c1 #e1e1e1;
-outline: 0;
-margin: 0;
-text-align: left;
-height: 1.8em;
-vertical-align: top;
+  width: 20%;
+  background-color: #FFF;
+  color: #8a8a8a;
+  border-radius: 5px;
+  min-height: 3em;
+  font-size: 13px;
+  font-family: 'Lato', sans-serif;
+  line-height: 1.4em;
+  padding: 0.7em;
+  border: 1px solid;
+  box-sizing: border-box;
+  background-clip: padding-box;
+  border-color: #e1e1e1;
+  outline: 0;
+  margin: 0;
+  text-align: left;
+  height: 1.8em;
+  vertical-align: top;
+}
+#attachinary_file_field
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif;
+  color: #555;
+}
+
+a {
+  color: #d3af89;
+  text-decoration: none;
+  font-family: 'Lato', sans-serif;
+}
+
+.profile {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  h1 {
+    border-bottom: 2px solid #999;
+    color: #555;
+  }
+}
+
+.profile_pic {
+  text-align: center;
+  background-color: transparentize(white, .3);
+  padding: 0.7em;
 }
