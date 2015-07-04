@@ -1,11 +1,15 @@
-<h1>Hello World</h1>
-<%= @user.name %>
+<h1>Hello <%= @user.name %></h1>
+
+<%= @user.location %>
 
 <%= form_for(@user) do |f| %>
-  <%= f.attachinary_file_field :avatar %>
+  <%= f.attachinary_file_field :avatar %><br>
   <%= f.submit "Upload Photo" %>
-<% end %>
+<% end %><br>
 
 <% if @user.avatar? %>
-    <%= cl_image_tag(@user.avatar.path, { size: '200x200', crop: :thumb, gravity: :face }) %>
+    <%= cl_image_tag(@user.avatar.path, { size: '200x200',
+                                          crop: :thumb,
+                                       gravity: :face,
+                                        radius: :max }) %>
 <% end %>
