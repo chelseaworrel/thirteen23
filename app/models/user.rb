@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   validates :username, presence: true
   validates :password, presence: true
   validates :email, presence: true
+  validates_format_of :email, :with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
+
 
   def to_param
     "#{self.username}"
