@@ -1,21 +1,11 @@
+<div class="body-style">
 <h1>Create Account</h1>
-<div class="Sign Up Form">
   <%= form_for(@user) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
-
-    <%= f.label :username %>
-    <%= f.text_field :username %><br>
-
-    <%= f.label :email %>
-    <%= f.text_field :email %><br>
-
-    <%= f.label :password %>
-    <%= f.password_field :password %><br>
-
-    <%= f.label :location %>
-    <%= f.text_field :location %><br>
-
+    <%= f.text_field :name, placeholder: "name" %><br>
+    <%= f.text_field :username, placeholder: "username" %><br>
+    <%= f.text_field :email, placeholder: "email" %><br>
+    <%= f.password_field :password, placeholder: "password"%><br>
+    <%= f.text_field :location, placeholder: "location (optional)" %><br>
     <%= f.submit "Create Account"%>
   <% end %>
 </div>
