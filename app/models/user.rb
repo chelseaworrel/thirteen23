@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates_format_of :email, :with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   # validates :avatar, presence: true
-  has_attachment  :avatar, accept: [:png]
+  has_attachment :avatar, accept: [:png]
+  validates :avatar, presence: true
 
 
   def to_param

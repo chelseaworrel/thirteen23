@@ -1,15 +1,20 @@
 <h1>Hello <%= @user.name %></h1>
 
-<%= @user.location %>
+<h3>Location <%= @user.location %></h3>
+<% if @user.avatar? %>
+  <%= cl_image_tag(@user.avatar.path, { size: '200x200',
+                                        crop: :thumb,
+                                     gravity: :face,
+                                      radius: :max }) %>
+<% else %>
+  <%= cl_image_tag("non_existing_id.png", { size: '200x200',
+                                          radius: :max,
+                                   default_image: 'default_qedy6q.png'}) %>
+<% end %>
+
+
 
 <%= form_for(@user) do |f| %>
   <%= f.attachinary_file_field :avatar %><br>
   <%= f.submit "Upload Photo" %>
 <% end %><br>
-
-<% if @user.avatar? %>
-    <%= cl_image_tag(@user.avatar.path, { size: '200x200',
-                                          crop: :thumb,
-                                       gravity: :face,
-                                        radius: :max }) %>
-<% end %>
