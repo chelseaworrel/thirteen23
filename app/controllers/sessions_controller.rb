@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(username: params[:session][:username])
     if @user && @user.authenticate(params[:session][:password])
-      session[:user_username] = @user.username
+      session[:user_id] = @user.id
       redirect_to username_path(@user)
     else
       flash.now[:danger] = "Invalid login"
@@ -14,8 +14,10 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    if current_user
     session.clear
     redirect_to root_path
     flash[:notice] = "Goodbye"
+  end
   end
 end
