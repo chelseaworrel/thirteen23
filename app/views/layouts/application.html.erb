@@ -10,7 +10,8 @@
   <link href='//fonts.googleapis.com/css?family=Oleo+Script:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-
+  <%= render partial: 'layouts/nav' %>
+  
   <% flash.each do |name, message| %>
     <%= message %>
   <% end %>

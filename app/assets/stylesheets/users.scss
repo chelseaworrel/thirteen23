@@ -116,3 +116,17 @@ a:hover {
   height: 250px;
   border-radius:30px;
 }
+
+ul {
+  list-style-type: none;
+}
+
+.navigation-bar {
+  a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Oleo Script', cursive;
+    font-size: x-large;
+    text-shadow: 2px 2px #494949;
+  }
+}
