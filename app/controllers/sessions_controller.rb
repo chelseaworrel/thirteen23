@@ -14,7 +14,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    cookies.delete(:secureusertokens)
     session.clear
     redirect_to root_path
     flash[:notice] = "Goodbye"
