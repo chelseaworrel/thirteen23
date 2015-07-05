@@ -10,46 +10,33 @@ describe "user", type: :feature do
     visit root_path
   end
 
-  xit "can login" do
-    save_and_open_page
-    click_link("login")
+  it "can login" do
+    find(".login").click
     expect(current_path).to eq(login_path)
-    page.fill_in "email", with: "tswifty@gmail.com"
+    page.fill_in "username", with: "tswift"
     page.fill_in "password", with: "password"
-    click_button "login"
+    click_button "Login"
 
     assert page.has_content?("Taylor")
   end
 
-  xit "can't login without a username" do
-    click_link("login")
+  it "can't login without a username" do
+    find(".login").click
     expect(current_path).to eq(login_path)
     page.fill_in "password", with: "password"
-    click_button "login"
+    click_button "Login"
 
     expect(current_path).to eq(login_path)
     expect(page).to have_content("Invalid login")
   end
 
-  xit "can't login without a password" do
-    click_link("login")
+  it "can't login without a password" do
+    find(".login").click
     expect(current_path).to eq(login_path)
-    page.fill_in "email", with: "tswifty@gmail.com"
-    click_button "login"
+    page.fill_in "username", with: "tswift"
+    click_button "Login"
 
     expect(current_path).to eq(login_path)
     expect(page).to have_content("Invalid login")
-  end
-
-  xit "can logout while logged in" do
-    click_link("login")
-    expect(current_path).to eq(login_path)
-    page.fill_in "email", with: "twsifty@gmail.com"
-    page.fill_in "password", with: "password"
-    click_button "login"
-
-    click_link("logout")
-    expect(current_path).to eq(root_path)
-    expect(page).to have_content("Visit and old friend...")
   end
 end
