@@ -18,8 +18,8 @@ group :development, :test do
   gem 'launchy'
   gem 'pry'
   gem 'web-console', '~> 2.0'
-  gem 'minitest'
-  gem 'guard-minitest'
+  gem 'rspec-rails'
+  gem 'database_cleaner'
 end
 
 group :development do

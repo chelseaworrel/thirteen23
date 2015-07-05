@@ -1,8 +1,8 @@
 <div class="body-style">
-<h1>Login</h1>
-<%= form_for(:session, url: login_path) do |f| %>
-  <%= f.text_field :username, placeholder: "username" %><br>
-  <%= f.password_field :password, placeholder: "password" %><br><br>
-  <%= f.submit "Login" %>
-<% end %>
+  <h1>Login</h1>
+  <%= form_for(:session, url: login_path) do |f| %>
+    <%= f.text_field :username, placeholder: "username" %><br>
+    <%= f.password_field :password, placeholder: "password" %><br><br>
+    <%= f.submit "Login" %>
+  <% end %>
 </div>

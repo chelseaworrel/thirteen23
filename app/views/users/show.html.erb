@@ -1,6 +1,6 @@
 <div class="profile">
-<h1>Hello <%= @user.name %></h1>
-<h3>Location <%= @user.location %></h3>
+  <h1>Hello <%= @user.name %></h1>
+  <h3>Location <%= @user.location %></h3>
 <% if @user.avatar? %>
   <%= cl_image_tag(@user.avatar.path, { size: '200x200',
                                         crop: :thumb,
@@ -19,5 +19,3 @@
     <% end %>
 <% end %><br>
 </div>
-<%= link_to "Logout", logout_path, method: :delete %>
-<%= link_to "Home", root_path %>
