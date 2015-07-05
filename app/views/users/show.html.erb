@@ -1,9 +1,6 @@
 <div class="profile">
 <h1>Hello <%= @user.name %></h1>
 <h3>Location <%= @user.location %></h3>
-</div>
-
-<div class="profile_pic">
 <% if @user.avatar? %>
   <%= cl_image_tag(@user.avatar.path, { size: '200x200',
                                         crop: :thumb,

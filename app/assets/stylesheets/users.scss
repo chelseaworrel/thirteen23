@@ -89,6 +89,7 @@ a:hover {
 .profile {
   text-align: center;
   font-family: 'Lato', sans-serif;
+  background-color: transparentize(white, .3);
   h1 {
     border-bottom: 2px solid #999;
     color: #555;
