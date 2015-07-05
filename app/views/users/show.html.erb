@@ -17,7 +17,7 @@
 
 <% if @user == current_user %>
   <%= form_for(@user) do |f| %>
-    <%= f.attachinary_file_field :avatar %><br>
+    <%= f.attachinary_file_field :avatar %><br><br>
     <%= f.submit "Upload Photo" %>
     <% end %>
 <% end %><br>

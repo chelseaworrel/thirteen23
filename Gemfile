@@ -28,4 +28,5 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'responders', '~> 2.0'
 end
